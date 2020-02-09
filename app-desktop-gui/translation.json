@@ -1,0 +1,58 @@
+{
+    "APP_NAME": {
+        "en": "Eletronic Medical Record App",
+        "es": "Aplicación de registros médicos electrónicos"
+    },
+    "MENU_PATIENT": {
+        "en": "Patient Record",
+        "es": "Historia clínica del paciente"
+    },
+    "MENU_STANDARD_PROCEDURE": {
+        "en": "Standard Procedure",
+        "es": "Procedimiento Estándar"
+    },
+    "PATIENT_ID": {
+        "en": "Patient ID:",
+        "es": "Identificación del Paciente:"
+    },
+    "NAME": {
+        "en": "Patient Name:",
+        "es": "Nombre:"
+    },
+    "INSULIN": {
+        "en": "Insulin/Glyburide:",
+        "es": "Insulina/Gliburida:"
+    },
+    "MAMMOGRAPHY": {
+        "en": "Mammography:",
+        "es": "Mamografía:"
+    },
+    "BTN_CHECK_RESULT": {
+        "en": "Check Mamography Result",
+        "es": "Compruebe el resultado de la mamografía"
+    },
+    "BTN_DIABETES_CHECK_RESULT": {
+        "en": "Evaluate hospital readmission for Diabetes",
+        "es": "Evaluar el reingreso hospitalario por diabetes"
+    }, 
+    "DIAGNOSTIC": {
+        "en": "Diagnotic",
+        "es": "Diagnotico"
+    },   
+    "CANCER_POSITIVE_DIANOSTIC": {
+        "en": "Cancer Detected",
+        "es": "Cancer Detectado"
+    },
+    "CANCER_NEGATIVE_DIANOSTIC": {
+        "en": "Cancer NOT Detected",
+        "es": "Cancer NO Detectado"
+    },
+    "DIABETES_POSITIVE_READMISSION": {
+        "en": "ATTENTION: Patient requires extra attention due to his clinical state",
+        "es": "ATENCIÓN: El paciente requiere atención adicional debido a su estado clínico."
+    },
+    "DIABETES_NEGATIVE_READMISSION": {
+        "en": "Patient can go home",
+        "es": "La paciente puede ir a su casa"
+    }
+}
