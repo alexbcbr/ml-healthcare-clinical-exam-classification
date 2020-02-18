@@ -19,7 +19,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome Doctor Alex, you have 2 patients today Maria Fuente and Sue Kayan. Which one would you like to get more information?"
+        speak_output = "Welcome Doctor Alex, you have 2 patients today Maria Fuente and Sue Sanchez. Which one would you like to get more information?"
 
         return (
             handler_input.response_builder

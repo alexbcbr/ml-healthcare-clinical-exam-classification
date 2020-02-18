@@ -9,6 +9,8 @@ Globals:
 
 Resources:
   DoctorGuru:
+    # Alexa skill which is responsible for bringing a diagnostic for patient
+    # Demo for WWPS Mexico Summit
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: check-patient/
@@ -20,12 +22,12 @@ Resources:
       Events:
         AlexaSkillEvent:
           Type: AlexaSkill
-
   
   AlexaSDKLayer:
+    # Libraries for ask-sdk
     Type: 'AWS::Serverless::LayerVersion'
     Properties:
-      LayerName: CustomFunction
+      LayerName: alexa-sdk-python
       Description: ''
       ContentUri: 's3://alexbc.app.dev.us-east-2/lambda-layers.zip'
       CompatibleRuntimes:
@@ -33,3 +35,8 @@ Resources:
       LicenseInfo: MIT
       RetentionPolicy: Delete
 
+Outputs:
+  # Information about lambda function
+  DoctorGuruSkill:
+    Description: "ARN Alexa Skill for Doctor Guru"
+    Value: !GetAtt DoctorGuru.Arn

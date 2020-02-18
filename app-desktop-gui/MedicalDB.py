@@ -16,7 +16,7 @@ patientData[10253] = { "name":"Maria Fuente",
 					   "patient_data": "17349435,Caucasian,Male,72,Old,Emergency,Discharged/transferred to another type of inpatient care institution, Transfer from another health care facility,2,MC,Family/GeneralPractice,36,0,8,0,0,1,5,None,None,No,No,No,No,No,No,No,Steady,No,No,No,No,No,No,No,No,No,Steady,No,No,No,No,No",
 					 }
 
-patientData[8975] = { "name":"Sue Kayan di Maria", 
+patientData[8975] = { "name":"Sue Sanchez", 
 					  "photo": "data/patient_8975.jpeg",
 					  "exam_full": "data/patient_8975_m.png",
 					  "exam_frame": "data/Patient_8975_x2851_y1201.png",
