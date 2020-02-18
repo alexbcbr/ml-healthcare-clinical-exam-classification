@@ -2,8 +2,8 @@ import boto3
 
 client=boto3.client('sagemaker')
 response = client.list_trials(
-    ExperimentName='job-autopilot-experiment-aws-auto-ml-job', # this is an experiment in my account
-    MaxResults=2,
+    ExperimentName='diabetes-readmission-1-aws-auto-ml-job', # this is an experiment in my account
+    MaxResults=90,
     #NextToken='string'
 )
 
@@ -17,7 +17,7 @@ for trial in trial_summaries:
 
     response2=client.list_trial_components(
         TrialName=trial_name, # this is a trial from the above experiment
-        MaxResults=10,
+        MaxResults=40,
         #NextToken='string'
     )
     trial_component_summaries=response2['TrialComponentSummaries']

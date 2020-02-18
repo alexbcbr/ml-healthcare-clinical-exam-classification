@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM Template for alexa-doctor-guru
+
+Globals:
+  Function:
+    Timeout: 7
+
+Resources:
+  DoctorGuru:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: check-patient/
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.7
+      Role: arn:aws:iam::771620814942:role/aws-admin
+      Layers:
+        - Ref: AlexaSDKLayer
+      Events:
+        AlexaSkillEvent:
+          Type: AlexaSkill
+
+  
+  AlexaSDKLayer:
+    Type: 'AWS::Serverless::LayerVersion'
+    Properties:
+      LayerName: CustomFunction
+      Description: ''
+      ContentUri: 's3://alexbc.app.dev.us-east-2/lambda-layers.zip'
+      CompatibleRuntimes:
+        - python3.7
+      LicenseInfo: MIT
+      RetentionPolicy: Delete
+
