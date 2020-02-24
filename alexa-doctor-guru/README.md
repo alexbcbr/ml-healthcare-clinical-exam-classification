@@ -1,9 +1,16 @@
 # alexa-doctor-guru
 
 This project contains the Alexa Skill to provide patient diagnostic using SAM CLI.
-In order to deploy all resources, you can run the sript ./deploy. This script will deploy the lambda function and lambda layer in us-east-2.
+In order to deploy all resources, you can run the sript 
 
-This environment was tested in a local machine (MacOS) with Visual Studio Code
+./deploy.sh
+
+This script will deploy the lambda function and lambda layer in us-east-2. The function has a dependency on Lambda Layer which contains 
+libraries for alexa development kit (ask) and internacionalization. You need to run lambda layer
+
+./lambda-layer/deploy-lambda-layer.sh
+
+This environment was developed in a local machine (MacOS) with Visual Studio Code
 
 ## Dependencies to deploy the Alexa skill
 

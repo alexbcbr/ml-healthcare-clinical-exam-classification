@@ -1,0 +1,12 @@
+{
+    "WELCOME": {
+        "en": "Welcome Doctor Alex, you have 2 patients today Maria Fuente and Sue Sanchez. Which one would you like to get more information?",
+        "es": "Bienvenido Doctor Alex, hoy tiene 2 pacientes Maria Fuente y Sue Sanchez. ¿Cuál le gustaría obtener más información?"
+    },
+
+    "DIAGNOSTIC": {
+        "en": "Things are not going well. There is a evidence of breast cancer in her exam. My recommendation is booking a time with her as soon as possible.",
+        "es": "Las cosas no van bien. Hay evidencia de cáncer de seno en su examen. Mi recomendación es reservar un tiempo con ella lo antes posible."
+    }
+
+}

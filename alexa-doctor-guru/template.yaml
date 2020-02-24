@@ -1,11 +1,15 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  SAM Template for alexa-doctor-guru
+  SAM Template for alexa-doctor-guru skill
 
 Globals:
   Function:
     Timeout: 7
+
+Parameters:
+  Locale:
+    Type: String
 
 Resources:
   DoctorGuru:
@@ -22,14 +26,17 @@ Resources:
       Events:
         AlexaSkillEvent:
           Type: AlexaSkill
+      Environment:
+        Variables:
+          LOCALE: !Ref Locale
   
   AlexaSDKLayer:
-    # Libraries for ask-sdk
+    # Libraries for ask-sdk and pyslate
     Type: 'AWS::Serverless::LayerVersion'
     Properties:
-      LayerName: alexa-sdk-python
+      LayerName: alexa-sdk-i18n-python
       Description: ''
-      ContentUri: 's3://alexbc.app.dev.us-east-2/lambda-layers.zip'
+      ContentUri: 's3://alexbc.app.dev.us-east-2/lambda-layer-alexa-sdk-i18n.zip'
       CompatibleRuntimes:
         - python3.7
       LicenseInfo: MIT
