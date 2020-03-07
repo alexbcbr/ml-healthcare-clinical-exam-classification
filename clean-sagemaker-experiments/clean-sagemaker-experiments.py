@@ -2,7 +2,7 @@ import boto3
 
 client=boto3.client('sagemaker')
 response = client.list_trials(
-    ExperimentName='diabetes-readmission-clean-aws-auto-ml-job', # this is an experiment in my account
+    ExperimentName='patient-fraud-aws-auto-ml-job', # this is an experiment in my account
     MaxResults=90,
     #NextToken='string'
 )

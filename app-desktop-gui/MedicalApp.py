@@ -14,7 +14,7 @@ import PIL.ImageTk
 
 import MedicalDB as mdb
 import MedicalInvokeBreastCancerExam as mlBreastCancer
-import MedicalInvokeDiabetesReadmission as mlDiabetes
+#import MedicalInvokeDiabetesReadmission as mlDiabetes
 
 from pyslate.pyslate import Pyslate  #pip install pyslate
 from pyslate.backends.json_backend import JsonBackend
@@ -28,14 +28,14 @@ def btnCancerDiagnostic():
 		tk.messagebox.showinfo(_.t('DIAGNOSTIC'),_.t('CANCER_NEGATIVE_DIANOSTIC'), icon = 'error')
 	else:
 		tk.messagebox.showinfo(_.t('DIAGNOSTIC'),_.t('CANCER_POSITIVE_DIANOSTIC'), icon = 'warning')
-
+'''
 def btnDiabetesDiagnostic():
 	diabetes_data=mdb.patientData[int(patientSelected.get())]["patient_data"]
 	if (mlDiabetes.predict_diabetes(diabetes_data) == 0):
 		tk.messagebox.showinfo(_.t('DIAGNOSTIC'),_.t('DIABETES_NEGATIVE_READMISSION'), icon = 'error')
 	else:
 		tk.messagebox.showinfo(_.t('DIAGNOSTIC'),_.t('DIABETES_POSITIVE_READMISSION'), icon = 'warning')
-
+'''
 
 def cmbFindByPatientID(eventObject):
 	nameEntryUI.configure(text = mdb.patientData[int(patientSelected.get())]["name"])
@@ -137,7 +137,7 @@ ttk.Label(patient_conditions_frame, text=_.t('INSULIN')).grid(column=0, row=3, s
 insulinUI = ttk.Label(patient_conditions_frame, font=("Arial", 16), foreground="dark green")
 insulinUI.grid(column=1, row=3, sticky='W')
 #---------------------------------------------
-bDiabetesCheck = ttk.Button(patient_conditions_frame, text=_.t('BTN_DIABETES_CHECK_RESULT'), command=btnDiabetesDiagnostic).grid(row=3,column=1)
+#bDiabetesCheck = ttk.Button(patient_conditions_frame, text=_.t('BTN_DIABETES_CHECK_RESULT'), command=btnDiabetesDiagnostic).grid(row=3,column=1)
 #---------------------------------------------
 ttk.Label(patient_conditions_frame, text=_.t('MAMMOGRAPHY')).grid(column=0, row=4, sticky='W')
 photobreathUI = ttk.Label(patient_conditions_frame)
