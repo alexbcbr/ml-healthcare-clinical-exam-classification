@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 '''
 MedicalApp: User Interface for Eletronic Medical Record
 @author: Alex Coqueiro
@@ -68,7 +70,7 @@ def __init__(self):
 #======================
 # procedural code
 #======================
-_ = Pyslate("es", backend=JsonBackend("translation.json"))
+_ = Pyslate("en", backend=JsonBackend("translation.json"))
 
 win = tk.Tk()
 win.title(_.t("APP_NAME"))
