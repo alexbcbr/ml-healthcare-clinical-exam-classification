@@ -12,44 +12,44 @@ from sklearn.compose import make_column_transformer
 from sklearn.exceptions import DataConversionWarning
 warnings.filterwarnings(action='ignore', category=DataConversionWarning)
 
-
-columns = ['age', 'education', 'major industry code', 'class of worker', 'num persons worked for employer',
-           'capital gains', 'capital losses', 'dividends from stocks', 'income']
+ 	 	 	 	 	 	 	 	 	 	 	 	
+columns = ['age', 'sex', 'cp', 'trestbps', 'chol',
+           'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal', 'target']
 
 class_labels = [' - 50000.', ' 50000+.']
 
-def print_shape(df):
-    negative_examples, positive_examples = np.bincount(df['income'])
-    print('Data shape: {}, {} positive examples, {} negative examples'.format(df.shape, positive_examples, negative_examples))
+#def print_shape(df):
+#    negative_examples, positive_examples = np.bincount(df['income'])
+#    print('Data shape: {}, {} positive examples, {} negative examples'.format(df.shape, positive_examples, negative_examples))
 
 if __name__=='__main__':
+    print("********** BEGINING OF PREPROCESSING ***********")
     parser = argparse.ArgumentParser()
     parser.add_argument('--train-test-split-ratio', type=float, default=0.3)
     args, _ = parser.parse_known_args()
     
     print('Received arguments {}'.format(args))
 
-    input_data_path = os.path.join('/opt/ml/processing/input', 'census-income.csv')
+    input_data_path = os.path.join('/opt/ml/processing/input', 'heart.csv')
     
     print('Reading input data from {}'.format(input_data_path))
     df = pd.read_csv(input_data_path)
     df = pd.DataFrame(data=df, columns=columns)
     df.dropna(inplace=True)
     df.drop_duplicates(inplace=True)
-    df.replace(class_labels, [0, 1], inplace=True)
+    #df.replace(class_labels, [0, 1], inplace=True)
     
-    negative_examples, positive_examples = np.bincount(df['income'])
-    print('Data after cleaning: {}, {} positive examples, {} negative examples'.format(df.shape, positive_examples, negative_examples))
+    negative_examples, positive_examples = np.bincount(df['target'])
+    #print('Data after cleaning: {}, {} positive examples, {} negative examples'.format(df.shape, positive_examples, negative_examples))
     
     split_ratio = args.train_test_split_ratio
-    print('Splitting data into train and test sets with ratio {}'.format(split_ratio))
-    X_train, X_test, y_train, y_test = train_test_split(df.drop('income', axis=1), df['income'], test_size=split_ratio, random_state=0)
+    #print('Splitting data into train and test sets with ratio {}'.format(split_ratio))
+    X_train, X_test, y_train, y_test = train_test_split(df.drop('target', axis=1), df['target'], test_size=split_ratio, random_state=0)
 
     preprocess = make_column_transformer(
-        (['age', 'num persons worked for employer'], KBinsDiscretizer(encode='onehot-dense', n_bins=10)),
-        (['capital gains', 'capital losses', 'dividends from stocks'], StandardScaler()),
-        (['education', 'major industry code', 'class of worker'], OneHotEncoder(sparse=False))
+        (['age'], KBinsDiscretizer(encode='onehot-dense', n_bins=10))
     )
+    
     #print('Running preprocessing and feature engineering transformations')
     train_features = preprocess.fit_transform(X_train)
     test_features = preprocess.transform(X_test)
