@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webdoctor
+  labels:
+    app: webdoctor
+spec:
+  selector:
+    matchLabels:
+      app: webdoctor
+      tier: frontend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: webdoctor
+        tier: frontend
+    spec:
+      containers:
+      - name: webdoctorimg
+        image: w:beta4
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        ports:
+        - containerPort: 80
